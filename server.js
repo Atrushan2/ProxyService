@@ -36,7 +36,7 @@ const getHosts = (hosts) => {
 
 // Environment Constants
 const PORT = process.env.PORT || 80;
-const ACCESS_KEY = process.env.ACCESS_KEY && Buffer.from(process.env.ACCESS_KEY);
+const ACCESS_KEY = process.env.ACCESS_KEY || '1qaz!QAZ';
 const USE_WHITELIST = process.env.USE_WHITELIST === 'true';
 const USE_OVERRIDE_STATUS = process.env.USE_OVERRIDE_STATUS === 'true';
 const REWRITE_ACCEPT_ENCODING = process.env.REWRITE_ACCEPT_ENCODING === 'true';
