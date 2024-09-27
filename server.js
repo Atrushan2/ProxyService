@@ -36,16 +36,13 @@ const getHosts = (hosts) => {
 
 // Environment Constants
 const PORT = process.env.PORT || 80;
-const ACCESS_KEY = process.env.ACCESS_KEY || '1qaz!QAZ';
+const ACCESS_KEY = process.env.ACCESS_KEY && Buffer.from(process.env.ACCESS_KEY);
 const USE_WHITELIST = process.env.USE_WHITELIST === 'true';
 const USE_OVERRIDE_STATUS = process.env.USE_OVERRIDE_STATUS === 'true';
 const REWRITE_ACCEPT_ENCODING = process.env.REWRITE_ACCEPT_ENCODING === 'true';
 const APPEND_HEAD = process.env.APPEND_HEAD === 'true';
 const ALLOWED_HOSTS = getHosts(process.env.ALLOWED_HOSTS);
 const GZIP_METHOD = process.env.GZIP_METHOD;
-
-assert.ok(ACCESS_KEY, 'Missing ACCESS_KEY');
-assert.ok(ALLOWED_GZIP_METHODS.includes(GZIP_METHOD), `GZIP_METHOD must be one of the following values: ${JSON.stringify(ALLOWED_GZIP_METHODS)}`);
 
 const server = http.createServer();
 
